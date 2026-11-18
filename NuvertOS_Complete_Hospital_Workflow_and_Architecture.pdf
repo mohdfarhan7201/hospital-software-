@@ -1,0 +1,1648 @@
+%PDF-1.4
+%âãÏÓ
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R] /Count 6 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 6 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> >>
+endobj
+6 0 obj
+<< /Length 5352 >>
+stream
+0.050 0.080 0.150 rg
+0.00 787.89 595.28 54.00 re
+f
+0.150 0.450 0.950 rg
+0.00 784.89 595.28 3.00 re
+f
+1.000 1.000 1.000 rg
+BT
+/F2 14 Tf
+36.00 807.89 Td
+(NUVERTOS) Tj
+ET
+0.600 0.750 1.000 rg
+BT
+/F1 10 Tf
+120.00 807.89 Td
+(|  Enterprise Hospital Operating System \(HIS\)) Tj
+ET
+0.800 0.850 0.900 rg
+BT
+/F1 8 Tf
+36.00 793.89 Td
+(Section 1: Executive Overview & System Architecture) Tj
+ET
+0.700 0.800 0.950 rg
+BT
+/F2 9 Tf
+500.28 807.89 Td
+(Page 1 of 6) Tj
+ET
+0.930 0.940 0.960 rg
+0.00 0.00 595.28 30.00 re
+f
+0.800 0.820 0.860 RG
+0.5 w
+0.00 30.00 m 595.28 30.00 l S
+0.400 0.450 0.550 rg
+BT
+/F1 8 Tf
+36.00 12.00 Td
+(Confidential - Internal Architectural & Workflow Specification Document) Tj
+ET
+BT
+/F2 8 Tf
+345.28 12.00 Td
+(NuvertOS v2026.1 Enterprise | NABH & ABDM Compliant) Tj
+ET
+0.960 0.980 1.000 rg
+36.00 680.00 523.00 90.00 re
+f
+0.200 0.450 0.900 RG
+1 w
+36.00 770.00 m 36.00 680.00 l S
+0.100 0.200 0.450 rg
+BT
+/F2 14 Tf
+48.00 750.00 Td
+(NUVERTOS HOSPITAL OPERATING SYSTEM \(HIS / HMS\)) Tj
+ET
+0.300 0.350 0.450 rg
+BT
+/F1 9 Tf
+48.00 734.00 Td
+(Complete Operational Workflow, RBAC Permissions Matrix & System Architecture Manual) Tj
+ET
+BT
+/F1 8.5 Tf
+48.00 715.00 Td
+(A state-of-the-art enterprise health informatics platform engineered for tertiary hospitals,) Tj
+ET
+BT
+/F1 8.5 Tf
+48.00 702.00 Td
+(multi-speciality healthcare networks, and medical academic institutes.) Tj
+ET
+0.100 0.200 0.400 rg
+BT
+/F2 11 Tf
+36.00 655.00 Td
+(1. CORE TECHNOLOGY STACK & APPLICATION ARCHITECTURE) Tj
+ET
+0.980 0.980 0.990 rg
+36.00 603.00 523.00 30.00 re
+f
+0.850 0.880 0.920 RG
+0.5 w
+36.00 603.00 523.00 30.00 re
+S
+0.100 0.350 0.800 rg
+BT
+/F2 9 Tf
+48.00 623.00 Td
+(Frontend Framework) Tj
+ET
+0.300 0.350 0.400 rg
+BT
+/F1 8 Tf
+48.00 611.00 Td
+(Next.js 16 \(App Router\) with Turbopack, React 19, Server & Client Components separation.) Tj
+ET
+0.980 0.980 0.990 rg
+36.00 567.00 523.00 30.00 re
+f
+0.850 0.880 0.920 RG
+0.5 w
+36.00 567.00 523.00 30.00 re
+S
+0.100 0.350 0.800 rg
+BT
+/F2 9 Tf
+48.00 587.00 Td
+(Styling & Design System) Tj
+ET
+0.300 0.350 0.400 rg
+BT
+/F1 8 Tf
+48.00 575.00 Td
+(Tailwind CSS v4, Pure Dark/Light HSL tokens, Lucide Medical Iconography, Zero-lag CSS.) Tj
+ET
+0.980 0.980 0.990 rg
+36.00 531.00 523.00 30.00 re
+f
+0.850 0.880 0.920 RG
+0.5 w
+36.00 531.00 523.00 30.00 re
+S
+0.100 0.350 0.800 rg
+BT
+/F2 9 Tf
+48.00 551.00 Td
+(Data Contracts & Validation) Tj
+ET
+0.300 0.350 0.400 rg
+BT
+/F1 8 Tf
+48.00 539.00 Td
+(Strict TypeScript interfaces, Zod schema validation, unified Patient/EMR/Billing domain types.) Tj
+ET
+0.980 0.980 0.990 rg
+36.00 495.00 523.00 30.00 re
+f
+0.850 0.880 0.920 RG
+0.5 w
+36.00 495.00 523.00 30.00 re
+S
+0.100 0.350 0.800 rg
+BT
+/F2 9 Tf
+48.00 515.00 Td
+(State & UI Orchestration) Tj
+ET
+0.300 0.350 0.400 rg
+BT
+/F1 8 Tf
+48.00 503.00 Td
+(Zustand global store, TanStack Table v9 data virtualization, Sonner real-time toasts.) Tj
+ET
+0.100 0.200 0.400 rg
+BT
+/F2 11 Tf
+36.00 481.00 Td
+(2. CORE HEALTHCARE INFORMATICS PILLARS) Tj
+ET
+0.150 0.450 0.900 rg
+36.00 435.00 4.00 24.00 re
+f
+0.100 0.150 0.250 rg
+BT
+/F2 9 Tf
+46.00 453.00 Td
+(1. Unified Master Patient Index \(UMPI\)) Tj
+ET
+0.350 0.400 0.450 rg
+BT
+/F1 8 Tf
+46.00 441.00 Td
+(Generates permanent Unique Hospital Identification \(UHID\) linked with Ayushman Bharat ABHA ID for life-long longitudinal medical record tracking across all encounters.) Tj
+ET
+0.150 0.450 0.900 rg
+36.00 401.00 4.00 24.00 re
+f
+0.100 0.150 0.250 rg
+BT
+/F2 9 Tf
+46.00 419.00 Td
+(2. Role-Based Access Control \(RBAC\)) Tj
+ET
+0.350 0.400 0.450 rg
+BT
+/F1 8 Tf
+46.00 407.00 Td
+(Rigid granular access compartmentalization ensuring Doctors, Nurses, Receptionists, Pharmacists, and Billing Staff access strictly authorized clinical or administrative data.) Tj
+ET
+0.150 0.450 0.900 rg
+36.00 367.00 4.00 24.00 re
+f
+0.100 0.150 0.250 rg
+BT
+/F2 9 Tf
+46.00 385.00 Td
+(3. Closed-Loop Medication Dispensing) Tj
+ET
+0.350 0.400 0.450 rg
+BT
+/F1 8 Tf
+46.00 373.00 Td
+(Electronic prescription \(e-Rx\) transmission directly from doctor consultation room to pharmacy dispensing counter with automatic stock deduct and interaction check.) Tj
+ET
+0.150 0.450 0.900 rg
+36.00 333.00 4.00 24.00 re
+f
+0.100 0.150 0.250 rg
+BT
+/F2 9 Tf
+46.00 351.00 Td
+(4. Real-Time Revenue Cycle Management \(RCM\)) Tj
+ET
+0.350 0.400 0.450 rg
+BT
+/F1 8 Tf
+46.00 339.00 Td
+(Integrated itemized bill aggregation tracking OPD fees, IPD bed stay tariffs, OT surgeon charges, diagnostic tests, GST splits, and TPA insurance cashless pre-authorizations.) Tj
+ET
+0.100 0.200 0.400 rg
+BT
+/F2 11 Tf
+36.00 315.00 Td
+(3. HEALTHCARE REGULATORY & DIGITAL STANDARDS COMPLIANCE) Tj
+ET
+0.200 0.650 0.350 rg
+40.00 289.00 5.00 5.00 re
+f
+0.250 0.300 0.350 rg
+BT
+/F1 8 Tf
+52.00 293.00 Td
+(ABDM Milestone 1, 2 & 3 \(Ayushman Bharat Health Account & Health Information Provider / User\)) Tj
+ET
+0.200 0.650 0.350 rg
+40.00 274.00 5.00 5.00 re
+f
+0.250 0.300 0.350 rg
+BT
+/F1 8 Tf
+52.00 278.00 Td
+(NABH \(National Accreditation Board for Hospitals & Healthcare Providers\) Clinical Audit Standards) Tj
+ET
+0.200 0.650 0.350 rg
+40.00 259.00 5.00 5.00 re
+f
+0.250 0.300 0.350 rg
+BT
+/F1 8 Tf
+52.00 263.00 Td
+(DISHA / Indian Digital Information Security in Healthcare Act & HIPAA Patient Privacy Rules) Tj
+ET
+0.200 0.650 0.350 rg
+40.00 244.00 5.00 5.00 re
+f
+0.250 0.300 0.350 rg
+BT
+/F1 8 Tf
+52.00 248.00 Td
+(HL7 FHIR Release 4 & SNOMED-CT / ICD-10 Clinical Coding Compatibility for Interoperability) Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 8 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> >>
+endobj
+8 0 obj
+<< /Length 6669 >>
+stream
+0.050 0.080 0.150 rg
+0.00 787.89 595.28 54.00 re
+f
+0.150 0.450 0.950 rg
+0.00 784.89 595.28 3.00 re
+f
+1.000 1.000 1.000 rg
+BT
+/F2 14 Tf
+36.00 807.89 Td
+(NUVERTOS) Tj
+ET
+0.600 0.750 1.000 rg
+BT
+/F1 10 Tf
+120.00 807.89 Td
+(|  Enterprise Hospital Operating System \(HIS\)) Tj
+ET
+0.800 0.850 0.900 rg
+BT
+/F1 8 Tf
+36.00 793.89 Td
+(Section 2: Role-Based Access Control \(RBAC\) Permissions Matrix) Tj
+ET
+0.700 0.800 0.950 rg
+BT
+/F2 9 Tf
+500.28 807.89 Td
+(Page 2 of 6) Tj
+ET
+0.930 0.940 0.960 rg
+0.00 0.00 595.28 30.00 re
+f
+0.800 0.820 0.860 RG
+0.5 w
+0.00 30.00 m 595.28 30.00 l S
+0.400 0.450 0.550 rg
+BT
+/F1 8 Tf
+36.00 12.00 Td
+(Confidential - Internal Architectural & Workflow Specification Document) Tj
+ET
+BT
+/F2 8 Tf
+345.28 12.00 Td
+(NuvertOS v2026.1 Enterprise | NABH & ABDM Compliant) Tj
+ET
+0.100 0.200 0.400 rg
+BT
+/F2 12 Tf
+36.00 760.00 Td
+(HOSPITAL OPERATIONAL ROLES & GRANULAR PERMISSION MATRIX) Tj
+ET
+0.350 0.400 0.450 rg
+BT
+/F1 8.5 Tf
+36.00 746.00 Td
+(NuvertOS enforces a strict zero-trust security paradigm where navigation bars, dashboard widgets, and actions) Tj
+ET
+BT
+/F1 8.5 Tf
+36.00 735.00 Td
+(dynamically filter according to the active authenticated employee role.) Tj
+ET
+0.100 0.150 0.250 rg
+36.00 715.00 523.00 20.00 re
+f
+1.000 1.000 1.000 rg
+BT
+/F2 8.5 Tf
+42.00 721.00 Td
+(Role Name) Tj
+ET
+BT
+/F2 8.5 Tf
+145.00 721.00 Td
+(Assigned Modules) Tj
+ET
+BT
+/F2 8.5 Tf
+310.00 721.00 Td
+(Key Clinical / Admin Capabilities) Tj
+ET
+BT
+/F2 8.5 Tf
+485.00 721.00 Td
+(Security Level) Tj
+ET
+0.970 0.980 1.000 rg
+36.00 689.00 523.00 26.00 re
+f
+0.880 0.900 0.930 RG
+0.5 w
+36.00 689.00 523.00 26.00 re
+S
+0.100 0.300 0.700 rg
+BT
+/F2 8 Tf
+42.00 699.00 Td
+(Super Admin) Tj
+ET
+0.200 0.250 0.300 rg
+BT
+/F1 7.5 Tf
+145.00 699.00 Td
+(System-wide \(All 95+ routes\)) Tj
+ET
+BT
+/F1 7 Tf
+310.00 699.00 Td
+(Global audit logs, security tokens, hospital branch configs, role delegation.) Tj
+ET
+0.800 0.200 0.300 rg
+BT
+/F2 7.5 Tf
+485.00 699.00 Td
+(Level 1 \(Full Root\)) Tj
+ET
+1.000 1.000 1.000 rg
+36.00 661.00 523.00 26.00 re
+f
+0.880 0.900 0.930 RG
+0.5 w
+36.00 661.00 523.00 26.00 re
+S
+0.100 0.300 0.700 rg
+BT
+/F2 8 Tf
+42.00 671.00 Td
+(Hospital Admin) Tj
+ET
+0.200 0.250 0.300 rg
+BT
+/F1 7.5 Tf
+145.00 671.00 Td
+(Operations, Billing, Wards, Roster) Tj
+ET
+BT
+/F1 7 Tf
+310.00 671.00 Td
+(Staff shifts, bed allocations, financial MIS, tariffs, vendor purchase orders.) Tj
+ET
+0.800 0.200 0.300 rg
+BT
+/F2 7.5 Tf
+485.00 671.00 Td
+(Level 2 \(Executive\)) Tj
+ET
+0.970 0.980 1.000 rg
+36.00 633.00 523.00 26.00 re
+f
+0.880 0.900 0.930 RG
+0.5 w
+36.00 633.00 523.00 26.00 re
+S
+0.100 0.300 0.700 rg
+BT
+/F2 8 Tf
+42.00 643.00 Td
+(Doctor / Specialist) Tj
+ET
+0.200 0.250 0.300 rg
+BT
+/F1 7.5 Tf
+145.00 643.00 Td
+(OPD Queue, EMR, IPD Rounds, OT) Tj
+ET
+BT
+/F1 7 Tf
+310.00 643.00 Td
+(Diagnoses \(ICD-10\), e-Prescriptions, clinical progress notes, OT scheduling.) Tj
+ET
+0.200 0.600 0.300 rg
+BT
+/F2 7.5 Tf
+485.00 643.00 Td
+(Level 3 \(Clinical\)) Tj
+ET
+1.000 1.000 1.000 rg
+36.00 605.00 523.00 26.00 re
+f
+0.880 0.900 0.930 RG
+0.5 w
+36.00 605.00 523.00 26.00 re
+S
+0.100 0.300 0.700 rg
+BT
+/F2 8 Tf
+42.00 615.00 Td
+(Staff Nurse) Tj
+ET
+0.200 0.250 0.300 rg
+BT
+/F1 7.5 Tf
+145.00 615.00 Td
+(Wards, Vitals Charting, Kardex) Tj
+ET
+BT
+/F1 7 Tf
+310.00 615.00 Td
+(Bedside vital signs logging, medicine administration \(MAR\), discharge readiness.) Tj
+ET
+0.200 0.600 0.300 rg
+BT
+/F2 7.5 Tf
+485.00 615.00 Td
+(Level 3 \(Nursing\)) Tj
+ET
+0.970 0.980 1.000 rg
+36.00 577.00 523.00 26.00 re
+f
+0.880 0.900 0.930 RG
+0.5 w
+36.00 577.00 523.00 26.00 re
+S
+0.100 0.300 0.700 rg
+BT
+/F2 8 Tf
+42.00 587.00 Td
+(Receptionist / Front Desk) Tj
+ET
+0.200 0.250 0.300 rg
+BT
+/F1 7.5 Tf
+145.00 587.00 Td
+(Registration, Appointments, Token) Tj
+ET
+BT
+/F1 7 Tf
+310.00 587.00 Td
+(Patient demographic intake, token generation, OPD scheduling, KYC & ABHA.) Tj
+ET
+0.200 0.600 0.300 rg
+BT
+/F2 7.5 Tf
+485.00 587.00 Td
+(Level 4 \(Front Desk\)) Tj
+ET
+1.000 1.000 1.000 rg
+36.00 549.00 523.00 26.00 re
+f
+0.880 0.900 0.930 RG
+0.5 w
+36.00 549.00 523.00 26.00 re
+S
+0.100 0.300 0.700 rg
+BT
+/F2 8 Tf
+42.00 559.00 Td
+(Pharmacist) Tj
+ET
+0.200 0.250 0.300 rg
+BT
+/F1 7.5 Tf
+145.00 559.00 Td
+(Pharmacy Dispensing, Inventory) Tj
+ET
+BT
+/F1 7 Tf
+310.00 559.00 Td
+(e-Rx verification, medicine dispensing, batch expiry tracking, barcode scanner.) Tj
+ET
+0.200 0.600 0.300 rg
+BT
+/F2 7.5 Tf
+485.00 559.00 Td
+(Level 4 \(Pharmacy\)) Tj
+ET
+0.970 0.980 1.000 rg
+36.00 521.00 523.00 26.00 re
+f
+0.880 0.900 0.930 RG
+0.5 w
+36.00 521.00 523.00 26.00 re
+S
+0.100 0.300 0.700 rg
+BT
+/F2 8 Tf
+42.00 531.00 Td
+(Lab / PACS Technician) Tj
+ET
+0.200 0.250 0.300 rg
+BT
+/F1 7.5 Tf
+145.00 531.00 Td
+(Central Lab LIS, Radiology PACS) Tj
+ET
+BT
+/F1 7 Tf
+310.00 531.00 Td
+(Specimen barcoding, diagnostic results entry, DICOM imaging archive uploads.) Tj
+ET
+0.200 0.600 0.300 rg
+BT
+/F2 7.5 Tf
+485.00 531.00 Td
+(Level 4 \(Diagnostics\)) Tj
+ET
+1.000 1.000 1.000 rg
+36.00 493.00 523.00 26.00 re
+f
+0.880 0.900 0.930 RG
+0.5 w
+36.00 493.00 523.00 26.00 re
+S
+0.100 0.300 0.700 rg
+BT
+/F2 8 Tf
+42.00 503.00 Td
+(Billing & TPA Accountant) Tj
+ET
+0.200 0.250 0.300 rg
+BT
+/F1 7.5 Tf
+145.00 503.00 Td
+(Invoices, Cashless TPA, Ledger) Tj
+ET
+BT
+/F1 7 Tf
+310.00 503.00 Td
+(Itemized invoices, insurance pre-auth, GST split calculation, payment receipts.) Tj
+ET
+0.200 0.600 0.300 rg
+BT
+/F2 7.5 Tf
+485.00 503.00 Td
+(Level 4 \(Finance\)) Tj
+ET
+0.100 0.200 0.400 rg
+BT
+/F2 10.5 Tf
+36.00 455.00 Td
+(REAL-TIME DYNAMIC WORKSPACE SWITCHING ENGINE) Tj
+ET
+0.950 0.970 1.000 rg
+36.00 315.00 523.00 130.00 re
+f
+0.700 0.800 0.950 RG
+0.5 w
+36.00 315.00 523.00 130.00 re
+S
+0.100 0.300 0.700 rg
+BT
+/F2 8.5 Tf
+48.00 435.00 Td
+(* AppHeader Role Switcher:) Tj
+ET
+0.300 0.350 0.400 rg
+BT
+/F1 8 Tf
+175.00 435.00 Td
+(Allows instant simulation and role authorization switching across all 8 personas directly from the global navigation top bar.) Tj
+ET
+0.100 0.300 0.700 rg
+BT
+/F2 8.5 Tf
+48.00 407.00 Td
+(* Navigation Menu Pruning:) Tj
+ET
+0.300 0.350 0.400 rg
+BT
+/F1 8 Tf
+175.00 407.00 Td
+(The left sidebar filters strictly to the routes matching role permissions \(e.g. Pharmacists only see Pharmacy routes, Doctors see OPD/EMR/OT\).) Tj
+ET
+0.100 0.300 0.700 rg
+BT
+/F2 8.5 Tf
+48.00 379.00 Td
+(* Tailored Dashboard Personas:) Tj
+ET
+0.300 0.350 0.400 rg
+BT
+/F1 8 Tf
+175.00 379.00 Td
+(The /dashboard root page renders a custom specialized command center for each role \(e.g. Doctor sees waiting token queue; Accountant sees daily revenue & collections\).) Tj
+ET
+0.100 0.300 0.700 rg
+BT
+/F2 8.5 Tf
+48.00 351.00 Td
+(* Action Authorization Guard:) Tj
+ET
+0.300 0.350 0.400 rg
+BT
+/F1 8 Tf
+175.00 351.00 Td
+(Direct write actions \(e.g. admitting patient, writing prescription, clearing invoice\) enforce role capabilities preventing unauthorized overrides.) Tj
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 10 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> >>
+endobj
+10 0 obj
+<< /Length 5011 >>
+stream
+0.050 0.080 0.150 rg
+0.00 787.89 595.28 54.00 re
+f
+0.150 0.450 0.950 rg
+0.00 784.89 595.28 3.00 re
+f
+1.000 1.000 1.000 rg
+BT
+/F2 14 Tf
+36.00 807.89 Td
+(NUVERTOS) Tj
+ET
+0.600 0.750 1.000 rg
+BT
+/F1 10 Tf
+120.00 807.89 Td
+(|  Enterprise Hospital Operating System \(HIS\)) Tj
+ET
+0.800 0.850 0.900 rg
+BT
+/F1 8 Tf
+36.00 793.89 Td
+(Section 3: End-to-End Hospital Workflows \(Workflows 1 to 4\)) Tj
+ET
+0.700 0.800 0.950 rg
+BT
+/F2 9 Tf
+500.28 807.89 Td
+(Page 3 of 6) Tj
+ET
+0.930 0.940 0.960 rg
+0.00 0.00 595.28 30.00 re
+f
+0.800 0.820 0.860 RG
+0.5 w
+0.00 30.00 m 595.28 30.00 l S
+0.400 0.450 0.550 rg
+BT
+/F1 8 Tf
+36.00 12.00 Td
+(Confidential - Internal Architectural & Workflow Specification Document) Tj
+ET
+BT
+/F2 8 Tf
+345.28 12.00 Td
+(NuvertOS v2026.1 Enterprise | NABH & ABDM Compliant) Tj
+ET
+0.100 0.200 0.400 rg
+BT
+/F2 12 Tf
+36.00 760.00 Td
+(CLINICAL LIFECYCLE WORKFLOWS: FRONT DESK, OPD, IPD & SURGERY) Tj
+ET
+0.970 0.980 1.000 rg
+36.00 640.00 523.00 75.00 re
+f
+0.200 0.450 0.900 RG
+1 w
+36.00 715.00 m 36.00 640.00 l S
+0.100 0.350 0.800 rg
+BT
+/F2 9.5 Tf
+46.00 706.00 Td
+(WORKFLOW 01: Patient Intake, Demographic Registration & ABHA Linkage) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 694.00 Td
+(1. Patient approaches Front Desk / Self-service Kiosk for Registration.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 684.00 Td
+(2. Front Desk captures Full Name, Gender, DOB, Mobile, and Residential Address \(Street, City, State, PIN\).) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 674.00 Td
+(3. Ayushman Bharat Health Account \(ABHA ID\) linked via OTP/Aadhaar verification.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 664.00 Td
+(4. System issues permanent UHID \(Format: NU-2026-XXXXXX\) and prints Patient Barcoded ID Card.) Tj
+ET
+0.150 0.550 0.300 rg
+BT
+/F2 7.5 Tf
+52.00 652.00 Td
+(Outcome / Deliverable: Master Patient Record generated and synced across all hospital modules.) Tj
+ET
+0.970 0.980 1.000 rg
+36.00 548.00 523.00 75.00 re
+f
+0.200 0.450 0.900 RG
+1 w
+36.00 623.00 m 36.00 548.00 l S
+0.100 0.350 0.800 rg
+BT
+/F2 9.5 Tf
+46.00 614.00 Td
+(WORKFLOW 02: Outpatient \(OPD\) Appointment, Token Queue & Doctor Encounter) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 602.00 Td
+(1. Appointment booked via Front Desk / Teleconsultation Portal with Doctor, Specialty & Time Slot.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 592.00 Td
+(2. Patient arrives at hospital; Receptionist marks status as "Checked In", generating Token #TK-XXX.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 582.00 Td
+(3. Waiting Room Display & Doctor Console updates in real-time with queue waiting time.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 572.00 Td
+(4. Doctor calls patient, reviews Longitudinal History, enters Vitals, ICD-10 Diagnosis, and writes e-Rx.) Tj
+ET
+0.150 0.550 0.300 rg
+BT
+/F2 7.5 Tf
+52.00 560.00 Td
+(Outcome / Deliverable: EMR Encounter saved, OPD Consultation Bill auto-generated, e-Rx sent to Pharmacy.) Tj
+ET
+0.970 0.980 1.000 rg
+36.00 456.00 523.00 75.00 re
+f
+0.200 0.450 0.900 RG
+1 w
+36.00 531.00 m 36.00 456.00 l S
+0.100 0.350 0.800 rg
+BT
+/F2 9.5 Tf
+46.00 522.00 Td
+(WORKFLOW 03: Inpatient \(IPD\) Admission, Bed Matrix & Ward Nursing Kardex) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 510.00 Td
+(1. Doctor marks admission recommendation from OPD / Emergency Triage.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 500.00 Td
+(2. Ward Admission desk allocates available bed from Interactive Bed Grid \(ICU, Semi-Private, General\).) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 490.00 Td
+(3. Assigned Ward Nurse initiates Admission Assessment, vitals logging \(BP, Pulse, Temp, SpO2\).) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 480.00 Td
+(4. Digital Medication Administration Record \(MAR\) schedules IV infusions, oral dosages, and nurse notes.) Tj
+ET
+0.150 0.550 0.300 rg
+BT
+/F2 7.5 Tf
+52.00 468.00 Td
+(Outcome / Deliverable: Inpatient Bed occupied, daily bed tariff auto-accrued to patient billing ledger.) Tj
+ET
+0.970 0.980 1.000 rg
+36.00 364.00 523.00 75.00 re
+f
+0.200 0.450 0.900 RG
+1 w
+36.00 439.00 m 36.00 364.00 l S
+0.100 0.350 0.800 rg
+BT
+/F2 9.5 Tf
+46.00 430.00 Td
+(WORKFLOW 04: Operation Theatre \(OT\) Scheduling, PAC Clearance & Recovery Care) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 418.00 Td
+(1. Surgeon books OT Suite, selects Surgical Procedure \(e.g. Laparoscopic Appendectomy, TKR\), & OT Team.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 408.00 Td
+(2. Anesthetist conducts Pre-Anesthesia Checkup \(PAC\) review and assigns ASA Physical Status Grade.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 398.00 Td
+(3. Patient transferred to Pre-Op Holding; surgical safety checklist \(WHO Checklist\) validated.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 388.00 Td
+(4. Intra-operative anesthesia charted; patient transferred to Post-Anesthesia Care Unit \(PACU\) post-op.) Tj
+ET
+0.150 0.550 0.300 rg
+BT
+/F2 7.5 Tf
+52.00 376.00 Td
+(Outcome / Deliverable: Operation theatre charges, anesthesia fees, and surgical consumables added to invoice.) Tj
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 12 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> >>
+endobj
+12 0 obj
+<< /Length 5073 >>
+stream
+0.050 0.080 0.150 rg
+0.00 787.89 595.28 54.00 re
+f
+0.150 0.450 0.950 rg
+0.00 784.89 595.28 3.00 re
+f
+1.000 1.000 1.000 rg
+BT
+/F2 14 Tf
+36.00 807.89 Td
+(NUVERTOS) Tj
+ET
+0.600 0.750 1.000 rg
+BT
+/F1 10 Tf
+120.00 807.89 Td
+(|  Enterprise Hospital Operating System \(HIS\)) Tj
+ET
+0.800 0.850 0.900 rg
+BT
+/F1 8 Tf
+36.00 793.89 Td
+(Section 4: End-to-End Hospital Workflows \(Workflows 5 to 8\)) Tj
+ET
+0.700 0.800 0.950 rg
+BT
+/F2 9 Tf
+500.28 807.89 Td
+(Page 4 of 6) Tj
+ET
+0.930 0.940 0.960 rg
+0.00 0.00 595.28 30.00 re
+f
+0.800 0.820 0.860 RG
+0.5 w
+0.00 30.00 m 595.28 30.00 l S
+0.400 0.450 0.550 rg
+BT
+/F1 8 Tf
+36.00 12.00 Td
+(Confidential - Internal Architectural & Workflow Specification Document) Tj
+ET
+BT
+/F2 8 Tf
+345.28 12.00 Td
+(NuvertOS v2026.1 Enterprise | NABH & ABDM Compliant) Tj
+ET
+0.100 0.200 0.400 rg
+BT
+/F2 12 Tf
+36.00 760.00 Td
+(DIAGNOSTICS, PHARMACY, BILLING TPA & DISCHARGE WORKFLOWS) Tj
+ET
+0.970 0.980 1.000 rg
+36.00 640.00 523.00 75.00 re
+f
+0.200 0.450 0.900 RG
+1 w
+36.00 715.00 m 36.00 640.00 l S
+0.100 0.350 0.800 rg
+BT
+/F2 9.5 Tf
+46.00 706.00 Td
+(WORKFLOW 05: Central Diagnostic Laboratory \(LIS\) & Radiology PACS Imaging) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 694.00 Td
+(1. Doctor orders Laboratory tests \(Pathology, Biochemistry\) or Imaging \(X-Ray, CT, MRI, 2D Echo\).) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 684.00 Td
+(2. Phlebotomist draws blood sample, prints specimen barcode label, sends to Central Lab.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 674.00 Td
+(3. Automated analyzers perform assay; Pathologist reviews critical values and digitally signs report.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 664.00 Td
+(4. Radiology scans routed directly to Cloud DICOM PACS server with instant viewer link in Patient 360.) Tj
+ET
+0.150 0.550 0.300 rg
+BT
+/F2 7.5 Tf
+52.00 652.00 Td
+(Outcome / Deliverable: Certified Diagnostic PDF report available for Doctor review & Patient download.) Tj
+ET
+0.970 0.980 1.000 rg
+36.00 548.00 523.00 75.00 re
+f
+0.200 0.450 0.900 RG
+1 w
+36.00 623.00 m 36.00 548.00 l S
+0.100 0.350 0.800 rg
+BT
+/F2 9.5 Tf
+46.00 614.00 Td
+(WORKFLOW 06: Central Pharmacy Dispensing, Formulary Inventory & Batch Control) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 602.00 Td
+(1. Active electronic prescription \(e-Rx\) automatically queues on Pharmacist Dispense Terminal.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 592.00 Td
+(2. Pharmacist verifies dosage, formulation, duration, and patient drug allergy alerts \(e.g. Penicillin\).) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 582.00 Td
+(3. Barcode scan validates Medicine Batch Number, Expiry Date, and automatically deducts stock.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 572.00 Td
+(4. Medicine packed with printed dosage schedule labels \(e.g. 1-0-1 After Food\); bill marked as Dispensed.) Tj
+ET
+0.150 0.550 0.300 rg
+BT
+/F2 7.5 Tf
+52.00 560.00 Td
+(Outcome / Deliverable: Medicines handed over to patient/nurse, real-time inventory count updated.) Tj
+ET
+0.970 0.980 1.000 rg
+36.00 456.00 523.00 75.00 re
+f
+0.200 0.450 0.900 RG
+1 w
+36.00 531.00 m 36.00 456.00 l S
+0.100 0.350 0.800 rg
+BT
+/F2 9.5 Tf
+46.00 522.00 Td
+(WORKFLOW 07: Insurance Cashless Pre-Auth, TPA Claim Desk & Billing Settlement) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 510.00 Td
+(1. TPA Desk collects insurance policy card, photo ID, and pre-auth request form from patient.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 500.00 Td
+(2. Online pre-authorization submitted to Insurer / TPA Portal \(MediAssist, Vidal, Star Health, etc.\).) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 490.00 Td
+(3. Initial approval sanction received; system splits bill into Co-pay/Deductible and Insurer Share.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 480.00 Td
+(4. Final itemized billing invoice generated including bed rent, consultations, lab, pharmacy & GST.) Tj
+ET
+0.150 0.550 0.300 rg
+BT
+/F2 7.5 Tf
+52.00 468.00 Td
+(Outcome / Deliverable: Cashless pre-auth secured; co-pay settled via UPI/Card; claim uploaded for settlement.) Tj
+ET
+0.970 0.980 1.000 rg
+36.00 364.00 523.00 75.00 re
+f
+0.200 0.450 0.900 RG
+1 w
+36.00 439.00 m 36.00 364.00 l S
+0.100 0.350 0.800 rg
+BT
+/F2 9.5 Tf
+46.00 430.00 Td
+(WORKFLOW 08: Clinical Discharge Clearance, Gate Pass & Remote Follow-Up) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 418.00 Td
+(1. Attending Doctor marks patient "Medically Fit for Discharge" and drafts Discharge Summary.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 408.00 Td
+(2. Discharge Summary includes admission diagnosis, hospital course, operative notes, & take-home Rx.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 398.00 Td
+(3. All clinical departments \(Pharmacy, Lab, Radiology, Nursing Ward\) complete digital "No Dues".) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 388.00 Td
+(4. Billing desk marks bill Paid, issues Gate Pass, and schedules 7-day Telemedicine follow-up.) Tj
+ET
+0.150 0.550 0.300 rg
+BT
+/F2 7.5 Tf
+52.00 376.00 Td
+(Outcome / Deliverable: Patient discharged safely with complete medical dossier, signed summary & digital gate pass.) Tj
+ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 14 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> >>
+endobj
+14 0 obj
+<< /Length 5234 >>
+stream
+0.050 0.080 0.150 rg
+0.00 787.89 595.28 54.00 re
+f
+0.150 0.450 0.950 rg
+0.00 784.89 595.28 3.00 re
+f
+1.000 1.000 1.000 rg
+BT
+/F2 14 Tf
+36.00 807.89 Td
+(NUVERTOS) Tj
+ET
+0.600 0.750 1.000 rg
+BT
+/F1 10 Tf
+120.00 807.89 Td
+(|  Enterprise Hospital Operating System \(HIS\)) Tj
+ET
+0.800 0.850 0.900 rg
+BT
+/F1 8 Tf
+36.00 793.89 Td
+(Section 5: NuvertOS 95+ Route Master Navigation Sitemap) Tj
+ET
+0.700 0.800 0.950 rg
+BT
+/F2 9 Tf
+500.28 807.89 Td
+(Page 5 of 6) Tj
+ET
+0.930 0.940 0.960 rg
+0.00 0.00 595.28 30.00 re
+f
+0.800 0.820 0.860 RG
+0.5 w
+0.00 30.00 m 595.28 30.00 l S
+0.400 0.450 0.550 rg
+BT
+/F1 8 Tf
+36.00 12.00 Td
+(Confidential - Internal Architectural & Workflow Specification Document) Tj
+ET
+BT
+/F2 8 Tf
+345.28 12.00 Td
+(NuvertOS v2026.1 Enterprise | NABH & ABDM Compliant) Tj
+ET
+0.100 0.200 0.400 rg
+BT
+/F2 12 Tf
+36.00 760.00 Td
+(COMPREHENSIVE APPLICATION ROUTE DIRECTORY \(13 MODULE GROUPS\)) Tj
+ET
+0.980 0.980 0.990 rg
+36.00 688.00 523.00 30.00 re
+f
+0.850 0.880 0.920 RG
+0.5 w
+36.00 688.00 523.00 30.00 re
+S
+0.100 0.350 0.750 rg
+BT
+/F2 8.5 Tf
+44.00 708.00 Td
+(1. Core & Clinical Modules) Tj
+ET
+0.300 0.350 0.400 rg
+BT
+/F1 7.2 Tf
+44.00 696.00 Td
+(Active Routes: /dashboard, /patients, /patients/[id], /appointments, /appointments/calendar, /opd, /opd/queue, /ipd, /ipd/admissions, /emergency, /ot, /ot/roster) Tj
+ET
+0.980 0.980 0.990 rg
+36.00 652.00 523.00 30.00 re
+f
+0.850 0.880 0.920 RG
+0.5 w
+36.00 652.00 523.00 30.00 re
+S
+0.100 0.350 0.750 rg
+BT
+/F2 8.5 Tf
+44.00 672.00 Td
+(2. Diagnostic & Laboratory Services) Tj
+ET
+0.300 0.350 0.400 rg
+BT
+/F1 7.2 Tf
+44.00 660.00 Td
+(Active Routes: /laboratory, /laboratory/specimens, /laboratory/reports, /radiology, /radiology/pacs, /pathology, /blood-bank, /blood-bank/donors) Tj
+ET
+0.980 0.980 0.990 rg
+36.00 616.00 523.00 30.00 re
+f
+0.850 0.880 0.920 RG
+0.5 w
+36.00 616.00 523.00 30.00 re
+S
+0.100 0.350 0.750 rg
+BT
+/F2 8.5 Tf
+44.00 636.00 Td
+(3. Pharmacy & Supply Chain) Tj
+ET
+0.300 0.350 0.400 rg
+BT
+/F1 7.2 Tf
+44.00 624.00 Td
+(Active Routes: /pharmacy, /pharmacy/pos, /pharmacy/inventory, /pharmacy/batches, /prescriptions, /purchase-orders, /suppliers, /stock-alerts) Tj
+ET
+0.980 0.980 0.990 rg
+36.00 580.00 523.00 30.00 re
+f
+0.850 0.880 0.920 RG
+0.5 w
+36.00 580.00 523.00 30.00 re
+S
+0.100 0.350 0.750 rg
+BT
+/F2 8.5 Tf
+44.00 600.00 Td
+(4. Revenue Cycle & Financials) Tj
+ET
+0.300 0.350 0.400 rg
+BT
+/F1 7.2 Tf
+44.00 588.00 Td
+(Active Routes: /billing, /billing/invoices, /billing/receipts, /tpa-claims, /insurance, /refunds, /tariffs, /financial-reports) Tj
+ET
+0.980 0.980 0.990 rg
+36.00 544.00 523.00 30.00 re
+f
+0.850 0.880 0.920 RG
+0.5 w
+36.00 544.00 523.00 30.00 re
+S
+0.100 0.350 0.750 rg
+BT
+/F2 8.5 Tf
+44.00 564.00 Td
+(5. Inpatient, Nursing & Beds) Tj
+ET
+0.300 0.350 0.400 rg
+BT
+/F1 7.2 Tf
+44.00 552.00 Td
+(Active Routes: /wards, /beds, /nursing-station, /vitals-monitoring, /medication-administration, /dietary-services, /housekeeping) Tj
+ET
+0.980 0.980 0.990 rg
+36.00 508.00 523.00 30.00 re
+f
+0.850 0.880 0.920 RG
+0.5 w
+36.00 508.00 523.00 30.00 re
+S
+0.100 0.350 0.750 rg
+BT
+/F2 8.5 Tf
+44.00 528.00 Td
+(6. Telemedicine & Remote Care) Tj
+ET
+0.300 0.350 0.400 rg
+BT
+/F1 7.2 Tf
+44.00 516.00 Td
+(Active Routes: /telemedicine, /telemedicine/consultations, /telemedicine/video-room, /patient-portal, /messaging) Tj
+ET
+0.980 0.980 0.990 rg
+36.00 472.00 523.00 30.00 re
+f
+0.850 0.880 0.920 RG
+0.5 w
+36.00 472.00 523.00 30.00 re
+S
+0.100 0.350 0.750 rg
+BT
+/F2 8.5 Tf
+44.00 492.00 Td
+(7. Medical Records \(EMR / EHR\)) Tj
+ET
+0.300 0.350 0.400 rg
+BT
+/F1 7.2 Tf
+44.00 480.00 Td
+(Active Routes: /emr, /clinical-notes, /discharge-summaries, /consent-forms, /medico-legal-cases, /audit-trails) Tj
+ET
+0.980 0.980 0.990 rg
+36.00 436.00 523.00 30.00 re
+f
+0.850 0.880 0.920 RG
+0.5 w
+36.00 436.00 523.00 30.00 re
+S
+0.100 0.350 0.750 rg
+BT
+/F2 8.5 Tf
+44.00 456.00 Td
+(8. Administration & Human Resources) Tj
+ET
+0.300 0.350 0.400 rg
+BT
+/F1 7.2 Tf
+44.00 444.00 Td
+(Active Routes: /doctors, /doctors/schedules, /staff, /shifts, /departments, /rooms, /hospital-branches) Tj
+ET
+0.980 0.980 0.990 rg
+36.00 400.00 523.00 30.00 re
+f
+0.850 0.880 0.920 RG
+0.5 w
+36.00 400.00 523.00 30.00 re
+S
+0.100 0.350 0.750 rg
+BT
+/F2 8.5 Tf
+44.00 420.00 Td
+(9. Analytics, MIS & Governance) Tj
+ET
+0.300 0.350 0.400 rg
+BT
+/F1 7.2 Tf
+44.00 408.00 Td
+(Active Routes: /analytics, /occupancy-metrics, /clinical-outcomes, /revenue-mis, /kpi-dashboard, /compliance) Tj
+ET
+0.980 0.980 0.990 rg
+36.00 364.00 523.00 30.00 re
+f
+0.850 0.880 0.920 RG
+0.5 w
+36.00 364.00 523.00 30.00 re
+S
+0.100 0.350 0.750 rg
+BT
+/F2 8.5 Tf
+44.00 384.00 Td
+(10. Security, RBAC & System Settings) Tj
+ET
+0.300 0.350 0.400 rg
+BT
+/F1 7.2 Tf
+44.00 372.00 Td
+(Active Routes: /settings, /roles-permissions, /api-keys, /backups, /system-health, /notifications) Tj
+ET
+0.950 0.970 1.000 rg
+36.00 325.00 523.00 40.00 re
+f
+0.200 0.450 0.900 RG
+0.5 w
+36.00 325.00 523.00 40.00 re
+S
+0.100 0.300 0.700 rg
+BT
+/F2 8.5 Tf
+44.00 350.00 Td
+(Key UI Navigation Feature Highlights:) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+44.00 340.00 Td
+(1. Full Sidebar Auto-Collapsing: Centered HeartPulse icon with click-to-expand and hover popovers.) Tj
+ET
+BT
+/F1 7.5 Tf
+44.00 331.00 Td
+(2. Quick Role Swapper: Dynamic real-time persona switcher modifying authorized routes instantly.) Tj
+ET
+endstream
+endobj
+15 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 16 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> >>
+endobj
+16 0 obj
+<< /Length 4305 >>
+stream
+0.050 0.080 0.150 rg
+0.00 787.89 595.28 54.00 re
+f
+0.150 0.450 0.950 rg
+0.00 784.89 595.28 3.00 re
+f
+1.000 1.000 1.000 rg
+BT
+/F2 14 Tf
+36.00 807.89 Td
+(NUVERTOS) Tj
+ET
+0.600 0.750 1.000 rg
+BT
+/F1 10 Tf
+120.00 807.89 Td
+(|  Enterprise Hospital Operating System \(HIS\)) Tj
+ET
+0.800 0.850 0.900 rg
+BT
+/F1 8 Tf
+36.00 793.89 Td
+(Section 6: Security, Compliance & Disaster Recovery Protocols) Tj
+ET
+0.700 0.800 0.950 rg
+BT
+/F2 9 Tf
+500.28 807.89 Td
+(Page 6 of 6) Tj
+ET
+0.930 0.940 0.960 rg
+0.00 0.00 595.28 30.00 re
+f
+0.800 0.820 0.860 RG
+0.5 w
+0.00 30.00 m 595.28 30.00 l S
+0.400 0.450 0.550 rg
+BT
+/F1 8 Tf
+36.00 12.00 Td
+(Confidential - Internal Architectural & Workflow Specification Document) Tj
+ET
+BT
+/F2 8 Tf
+345.28 12.00 Td
+(NuvertOS v2026.1 Enterprise | NABH & ABDM Compliant) Tj
+ET
+0.100 0.200 0.400 rg
+BT
+/F2 12 Tf
+36.00 760.00 Td
+(ENTERPRISE SECURITY, DATA INTEGRITY & HIGH AVAILABILITY) Tj
+ET
+0.970 0.980 1.000 rg
+36.00 658.00 523.00 60.00 re
+f
+0.200 0.450 0.900 RG
+1 w
+36.00 718.00 m 36.00 658.00 l S
+0.100 0.350 0.800 rg
+BT
+/F2 9.5 Tf
+46.00 706.00 Td
+(1. Cryptographic Security & In-Flight Protection) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 694.00 Td
+(-  End-to-End Encryption: All patient data encrypted at rest using AES-256 and in transit via TLS 1.3.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 683.00 Td
+(-  Zero Clear-Text Passwords: Argon2id hashing with salted cryptographic nonces.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 672.00 Td
+(-  Scoped JWT Sessions: Short-lived access tokens with secure HTTP-only refresh tokens & IP binding.) Tj
+ET
+0.970 0.980 1.000 rg
+36.00 584.00 523.00 60.00 re
+f
+0.200 0.450 0.900 RG
+1 w
+36.00 644.00 m 36.00 584.00 l S
+0.100 0.350 0.800 rg
+BT
+/F2 9.5 Tf
+46.00 632.00 Td
+(2. Medico-Legal Immutability & Audit Trail) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 620.00 Td
+(-  Tamper-Proof Audit Logging: Every viewing, edit, export, and billing adjustment logged with timestamp and user ID.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 609.00 Td
+(-  Clinical Record Sealing: Once a doctor signs a clinical note, edits require signed addendum records.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 598.00 Td
+(-  DISHA & HIPAA Conformance: Automated PHI anonymization for export and research queries.) Tj
+ET
+0.970 0.980 1.000 rg
+36.00 510.00 523.00 60.00 re
+f
+0.200 0.450 0.900 RG
+1 w
+36.00 570.00 m 36.00 510.00 l S
+0.100 0.350 0.800 rg
+BT
+/F2 9.5 Tf
+46.00 558.00 Td
+(3. Ayushman Bharat Digital Mission \(ABDM\) Integration) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 546.00 Td
+(-  Milestone 1: ABHA creation, demographic KYC linking, and scan & share QR registration.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 535.00 Td
+(-  Milestone 2: Health Information Provider \(HIP\) capability exporting diagnostic reports and prescriptions.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 524.00 Td
+(-  Milestone 3: Health Information User \(HIU\) consent manager pulling longitudinal history from external hospitals.) Tj
+ET
+0.970 0.980 1.000 rg
+36.00 436.00 523.00 60.00 re
+f
+0.200 0.450 0.900 RG
+1 w
+36.00 496.00 m 36.00 436.00 l S
+0.100 0.350 0.800 rg
+BT
+/F2 9.5 Tf
+46.00 484.00 Td
+(4. High Availability & Disaster Recovery Architecture) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 472.00 Td
+(-  Multi-AZ Redundancy: 99.99% uptime SLA with active-passive database clustering across geographic regions.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 461.00 Td
+(-  Automated Point-in-Time Recovery \(PITR\): Continuous transaction log shipping supporting 5-minute RPO.) Tj
+ET
+0.250 0.300 0.350 rg
+BT
+/F1 7.5 Tf
+52.00 450.00 Td
+(-  Hospital Offline Local Survivability: Edge caching for emergency triage and front desk token issuance during WAN downtime.) Tj
+ET
+0.100 0.150 0.250 rg
+36.00 120.00 523.00 65.00 re
+f
+1.000 1.000 1.000 rg
+BT
+/F2 9 Tf
+48.00 168.00 Td
+(DOCUMENT CERTIFICATION & SYSTEM APPROVAL) Tj
+ET
+0.800 0.850 0.900 rg
+BT
+/F1 7.5 Tf
+48.00 153.00 Td
+(This architectural & workflow specification represents the certified operational design of NuvertOS v2026.1.) Tj
+ET
+BT
+/F1 7.5 Tf
+48.00 142.00 Td
+(Prepared for hospital executive management, clinical advisory committee, and technical audit teams.) Tj
+ET
+0.400 0.800 0.500 rg
+BT
+/F2 8 Tf
+48.00 130.00 Td
+(Status: APPROVED & DEPLOYED IN PRODUCTION WORKSPACE) Tj
+ET
+endstream
+endobj
+xref
+0 17
+0000000000 65535 f 
+0000000019 00000 n 
+0000000068 00000 n 
+0000000158 00000 n 
+0000000255 00000 n 
+0000000357 00000 n 
+0000000499 00000 n 
+0000005903 00000 n 
+0000006045 00000 n 
+0000012766 00000 n 
+0000012909 00000 n 
+0000017973 00000 n 
+0000018117 00000 n 
+0000023243 00000 n 
+0000023387 00000 n 
+0000028674 00000 n 
+0000028818 00000 n 
+trailer
+<< /Size 17 /Root 1 0 R >>
+startxref
+33176
+%%EOF

@@ -1,26 +1,211 @@
 @import "tailwindcss";
+@source "../**/*.{ts,tsx}";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Override default slate to pure neutral charcoal / black (removes all navy blue tint) */
+  --color-slate-50: #fafafa;
+  --color-slate-100: #f4f4f5;
+  --color-slate-200: #e4e4e7;
+  --color-slate-300: #d4d4d8;
+  --color-slate-400: #a1a1aa;
+  --color-slate-500: #71717a;
+  --color-slate-600: #52525b;
+  --color-slate-700: #3f3f46;
+  --color-slate-800: #18181b;
+  --color-slate-900: #121214;
+  --color-slate-950: #09090b;
+
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f4f4f5;
+  --color-gray-200: #e4e4e7;
+  --color-gray-300: #d4d4d8;
+  --color-gray-400: #a1a1aa;
+  --color-gray-500: #71717a;
+  --color-gray-600: #52525b;
+  --color-gray-700: #3f3f46;
+  --color-gray-800: #18181b;
+  --color-gray-900: #121214;
+  --color-gray-950: #09090b;
+
+  --color-zinc-50: #fafafa;
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-200: #e4e4e7;
+  --color-zinc-300: #d4d4d8;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-600: #52525b;
+  --color-zinc-700: #3f3f46;
+  --color-zinc-800: #18181b;
+  --color-zinc-900: #121214;
+  --color-zinc-950: #09090b;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Pure Crisp Light Theme (Clean White & High Contrast Dark Text) */
+    --background: #FFFFFF;
+    --foreground: #09090B;
+    --card: #FFFFFF;
+    --card-foreground: #09090B;
+    --popover: #FFFFFF;
+    --popover-foreground: #09090B;
+    --primary: #2563EB;
+    --primary-hover: #1D4ED8;
+    --primary-foreground: #FFFFFF;
+    --secondary: #F4F4F5;
+    --secondary-foreground: #18181B;
+    --muted: #F4F4F5;
+    --muted-foreground: #71717A;
+    --accent: #F4F4F5;
+    --accent-foreground: #18181B;
+    --destructive: #DC2626;
+    --destructive-foreground: #FFFFFF;
+    --border: #E4E4E7;
+    --input: #E4E4E7;
+    --ring: #2563EB;
+    --sidebar: #FFFFFF;
+    --sidebar-foreground: #09090B;
+    --sidebar-border: #E4E4E7;
+    --sidebar-accent: #F4F4F5;
+    --sidebar-accent-foreground: #2563EB;
+    --success: #16A34A;
+    --warning: #D97706;
+    --info: #0284C7;
+    --radius: 0.625rem;
+  }
+
+  .dark {
+    /* Pure Jet Black & Neutral Charcoal Dark Mode (Zero blue / navy tint) */
+    --background: #09090B;
+    --foreground: #FAFAFA;
+    --card: #121214;
+    --card-foreground: #FAFAFA;
+    --popover: #121214;
+    --popover-foreground: #FAFAFA;
+    --primary: #3B82F6;
+    --primary-hover: #60A5FA;
+    --primary-foreground: #FFFFFF;
+    --secondary: #18181B;
+    --secondary-foreground: #FAFAFA;
+    --muted: #18181B;
+    --muted-foreground: #A1A1AA;
+    --accent: #18181B;
+    --accent-foreground: #FAFAFA;
+    --destructive: #EF4444;
+    --destructive-foreground: #FFFFFF;
+    --border: #27272A;
+    --input: #27272A;
+    --ring: #3B82F6;
+    --sidebar: #09090B;
+    --sidebar-foreground: #FAFAFA;
+    --sidebar-border: #27272A;
+    --sidebar-accent: #18181B;
+    --sidebar-accent-foreground: #3B82F6;
+    --success: #22C55E;
+    --warning: #F59E0B;
+    --info: #0EA5E9;
   }
 }
 
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-feature-settings: "rlig" 1, "calt" 1;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Universal Dark Mode Overrides: Ensures any component with hardcoded bg-white or border-slate switches seamlessly */
+html.dark .bg-white {
+  background-color: #121214 !important;
+}
+
+html.dark .bg-slate-50,
+html.dark .bg-gray-50 {
+  background-color: #09090B !important;
+}
+
+html.dark .bg-slate-100,
+html.dark .bg-gray-100 {
+  background-color: #18181B !important;
+}
+
+html.dark .border-slate-100,
+html.dark .border-slate-200,
+html.dark .border-slate-300,
+html.dark .border-gray-100,
+html.dark .border-gray-200,
+html.dark .border-gray-300 {
+  border-color: #27272A !important;
+}
+
+html.dark .text-slate-900,
+html.dark .text-gray-900 {
+  color: #FAFAFA !important;
+}
+
+html.dark .text-slate-800,
+html.dark .text-gray-800 {
+  color: #F4F4F5 !important;
+}
+
+html.dark .text-slate-700,
+html.dark .text-gray-700 {
+  color: #D4D4D8 !important;
+}
+
+html.dark .text-slate-600,
+html.dark .text-slate-500,
+html.dark .text-gray-600,
+html.dark .text-gray-500 {
+  color: #A1A1AA !important;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* Print Stylesheet for Invoices, Prescriptions, Reports */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print,
+  aside,
+  header,
+  nav {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-area {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 1cm !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
 }
