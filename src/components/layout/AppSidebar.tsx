@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef, useLayoutEffect, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -26,6 +26,12 @@ interface AppSidebarProps {
   onCloseMobile: () => void;
 }
 
+// Global cache to preserve scroll position and open groups across client-side page transitions
+let cachedSidebarScroll = 0;
+let cachedOpenGroups: Record<string, boolean> | null = null;
+
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
 export const AppSidebar: React.FC<AppSidebarProps> = ({
   collapsed,
   onToggleCollapse,
@@ -40,28 +46,88 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
   // Track hovered group for flyout menu when collapsed
   const [hoveredGroupId, setHoveredGroupId] = useState<string | null>(null);
 
-  // All groups open by default in expanded mode so inner items are visible
-  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({
-    dashboard: true,
-    "front-desk": true,
-    clinical: true,
-    ipd: true,
-    ot: true,
-    billing: true,
-    pharmacy: true,
-    lab: true,
-    "blood-bank": true,
-    insurance: true,
-    reports: true,
-    staff: true,
-    settings: true,
+  // Scroll container ref to preserve scroll position
+  const navScrollRef = useRef<HTMLDivElement>(null);
+
+  // All groups open by default in expanded mode, cached across navigations
+  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>(() => {
+    if (cachedOpenGroups) return cachedOpenGroups;
+    return {
+      dashboard: true,
+      "front-desk": true,
+      clinical: true,
+      ipd: true,
+      ot: true,
+      billing: true,
+      pharmacy: true,
+      lab: true,
+      "blood-bank": true,
+      insurance: true,
+      reports: true,
+      staff: true,
+      settings: true,
+    };
   });
 
   const toggleGroup = (id: string) => {
-    setOpenGroups((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
+    setOpenGroups((prev) => {
+      const next = { ...prev, [id]: !prev[id] };
+      cachedOpenGroups = next;
+      return next;
+    });
+  };
+
+  // Restore sidebar scroll position seamlessly across page navigations
+  useIsomorphicLayoutEffect(() => {
+    const applyScroll = () => {
+      let target = cachedSidebarScroll;
+      if (target === 0 && typeof window !== "undefined") {
+        try {
+          const stored = sessionStorage.getItem("nuvertos_sidebar_scroll");
+          if (stored) target = Number(stored);
+        } catch {}
+      }
+
+      if (navScrollRef.current) {
+        if (target > 0) {
+          navScrollRef.current.scrollTop = target;
+        } else {
+          // If no prior scroll, gently ensure active item is in view
+          const activeEl = navScrollRef.current.querySelector<HTMLElement>('[data-active="true"]');
+          if (activeEl) {
+            activeEl.scrollIntoView({ block: "nearest", behavior: "instant" });
+          }
+        }
+      }
+    };
+
+    applyScroll();
+    const rafId = requestAnimationFrame(applyScroll);
+    const timer = setTimeout(applyScroll, 30);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      clearTimeout(timer);
+    };
+  }, [pathname]);
+
+  const handleNavScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const top = e.currentTarget.scrollTop;
+    cachedSidebarScroll = top;
+    try {
+      sessionStorage.setItem("nuvertos_sidebar_scroll", String(top));
+    } catch {}
+  };
+
+  const handleNavClick = () => {
+    if (navScrollRef.current) {
+      const top = navScrollRef.current.scrollTop;
+      cachedSidebarScroll = top;
+      try {
+        sessionStorage.setItem("nuvertos_sidebar_scroll", String(top));
+      } catch {}
+    }
+    onCloseMobile();
   };
 
   // 1. Role-based navigation filtering: Only show modules permitted for this user's medical role
@@ -240,7 +306,11 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
         )}
 
         {/* Navigation List */}
-        <div className="flex-1 overflow-y-auto px-2 py-3 space-y-1">
+        <div
+          ref={navScrollRef}
+          onScroll={handleNavScroll}
+          className="flex-1 overflow-y-auto px-2 py-3 space-y-1"
+        >
           {filteredNav.map((group) => {
             const GroupIcon = group.icon;
             const isOpen = openGroups[group.id] || !!navSearch.trim();
@@ -323,9 +393,10 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
                           <Link
                             key={item.href}
                             href={item.href}
+                            data-active={isActive ? "true" : undefined}
                             onClick={() => {
                               setHoveredGroupId(null);
-                              onCloseMobile();
+                              handleNavClick();
                             }}
                             className={cn(
                               "flex items-center justify-between px-3 py-1.5 text-xs rounded-lg transition-colors font-medium",
@@ -369,7 +440,8 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
                         <Link
                           key={item.href}
                           href={item.href}
-                          onClick={onCloseMobile}
+                          data-active={isActive ? "true" : undefined}
+                          onClick={handleNavClick}
                           className={cn(
                             "flex items-center justify-between px-2.5 py-1.5 text-xs rounded-lg transition-colors font-medium group/link",
                             isActive
