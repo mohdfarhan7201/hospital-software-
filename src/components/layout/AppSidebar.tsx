@@ -91,9 +91,10 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
       {/* Sidebar Container */}
       <aside
         className={cn(
-          "fixed top-0 bottom-0 left-0 z-50 flex flex-col bg-[var(--sidebar)] border-r border-[var(--sidebar-border)] text-[var(--sidebar-foreground)] transition-all duration-300 ease-in-out",
-          collapsed ? "w-20" : "w-72",
-          // Mobile responsive classes
+          "fixed top-0 bottom-0 left-0 z-50 flex flex-col bg-[var(--sidebar)] border-r border-[var(--sidebar-border)] text-[var(--sidebar-foreground)] transition-all duration-300 ease-in-out shadow-xl md:shadow-none",
+          // On mobile, drawer is always full 18rem (w-72); on desktop toggles between w-20 and w-72
+          collapsed ? "w-72 md:w-20" : "w-72",
+          // Mobile slide-over drawer
           mobileOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
         )}
       >
@@ -101,68 +102,92 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
         <div
           className={cn(
             "h-16 flex items-center border-b border-[var(--sidebar-border)] shrink-0 transition-all",
-            collapsed ? "justify-center px-2" : "justify-between px-4"
+            collapsed ? "justify-between px-4 md:justify-center md:px-2" : "justify-between px-4"
           )}
         >
-          {collapsed ? (
-            /* Collapsed State: Full uncropped logo centered, click to expand */
-            <div className="flex items-center justify-center gap-1">
-              <button
-                onClick={onToggleCollapse}
-                className="w-10 h-10 rounded-xl bg-[var(--primary)] flex items-center justify-center text-white shadow-md shrink-0 hover:opacity-90 transition-transform active:scale-95 cursor-pointer"
-                title="Click to expand sidebar"
-              >
-                <HeartPulse className="w-6 h-6 stroke-[2.2]" />
-              </button>
-            </div>
-          ) : (
-            /* Expanded State: Full Logo with NuvertOS HIS and Collapse Toggle */
-            <>
-              <Link
-                href="/dashboard"
-                className="flex items-center gap-3 overflow-hidden min-w-0"
-                onClick={onCloseMobile}
-              >
-                <div className="w-10 h-10 rounded-xl bg-[var(--primary)] flex items-center justify-center text-white shadow-xs shrink-0">
-                  <HeartPulse className="w-6 h-6 stroke-[2.2]" />
+          {/* 1. Mobile Header (always full branding + close X button) */}
+          <div className="flex md:hidden items-center justify-between w-full">
+            <Link
+              href="/dashboard"
+              className="flex items-center gap-2.5 overflow-hidden min-w-0"
+              onClick={onCloseMobile}
+            >
+              <div className="w-9 h-9 rounded-xl bg-[var(--primary)] flex items-center justify-center text-white shadow-xs shrink-0">
+                <HeartPulse className="w-5 h-5 stroke-[2.2]" />
+              </div>
+              <div className="truncate">
+                <div className="flex items-center gap-1.5">
+                  <span className="font-bold text-base text-[var(--foreground)] tracking-tight">
+                    Nuvert<span className="text-[var(--primary)]">OS</span>
+                  </span>
+                  <span className="text-[9px] uppercase font-bold tracking-widest px-1.5 py-0.2 rounded bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/20">
+                    HIS
+                  </span>
                 </div>
-                <div className="truncate">
-                  <div className="flex items-center gap-1.5">
-                    <span className="font-bold text-lg text-[var(--foreground)] tracking-tight">
-                      Nuvert<span className="text-[var(--primary)]">OS</span>
-                    </span>
-                    <span className="text-[10px] uppercase font-bold tracking-widest px-1.5 py-0.2 rounded bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/20">
-                      HIS
-                    </span>
-                  </div>
-                  <p className="text-[10px] text-[var(--muted-foreground)] truncate max-w-[170px]">
-                    {currentBranch.name}
-                  </p>
-                </div>
-              </Link>
+                <p className="text-[10px] text-[var(--muted-foreground)] truncate max-w-[140px]">
+                  {currentBranch.city} Branch
+                </p>
+              </div>
+            </Link>
+            <button
+              onClick={onCloseMobile}
+              className="p-1.5 rounded-lg text-[var(--muted-foreground)] hover:bg-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+              title="Close drawer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
 
-              {/* Desktop Collapse & Mobile Close */}
-              <div className="flex items-center gap-1">
+          {/* 2. Desktop Header (switches between icon-only and full branding) */}
+          <div className="hidden md:flex items-center w-full justify-between">
+            {collapsed ? (
+              <div className="flex items-center justify-center w-full">
                 <button
                   onClick={onToggleCollapse}
-                  className="hidden md:flex p-1.5 rounded-lg text-[var(--muted-foreground)] hover:bg-[var(--muted)] hover:text-[var(--foreground)] transition-colors cursor-pointer"
+                  className="w-10 h-10 rounded-xl bg-[var(--primary)] flex items-center justify-center text-white shadow-md shrink-0 hover:opacity-90 transition-transform active:scale-95 cursor-pointer"
+                  title="Click to expand sidebar"
+                >
+                  <HeartPulse className="w-6 h-6 stroke-[2.2]" />
+                </button>
+              </div>
+            ) : (
+              <>
+                <Link
+                  href="/dashboard"
+                  className="flex items-center gap-3 overflow-hidden min-w-0"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-[var(--primary)] flex items-center justify-center text-white shadow-xs shrink-0">
+                    <HeartPulse className="w-6 h-6 stroke-[2.2]" />
+                  </div>
+                  <div className="truncate">
+                    <div className="flex items-center gap-1.5">
+                      <span className="font-bold text-lg text-[var(--foreground)] tracking-tight">
+                        Nuvert<span className="text-[var(--primary)]">OS</span>
+                      </span>
+                      <span className="text-[10px] uppercase font-bold tracking-widest px-1.5 py-0.2 rounded bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/20">
+                        HIS
+                      </span>
+                    </div>
+                    <p className="text-[10px] text-[var(--muted-foreground)] truncate max-w-[170px]">
+                      {currentBranch.name}
+                    </p>
+                  </div>
+                </Link>
+
+                <button
+                  onClick={onToggleCollapse}
+                  className="p-1.5 rounded-lg text-[var(--muted-foreground)] hover:bg-[var(--muted)] hover:text-[var(--foreground)] transition-colors cursor-pointer"
                   title="Collapse sidebar"
                 >
                   <PanelLeftClose className="w-4 h-4" />
                 </button>
-                <button
-                  onClick={onCloseMobile}
-                  className="flex md:hidden p-1.5 rounded-lg text-[var(--muted-foreground)] hover:bg-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-            </>
-          )}
+              </>
+            )}
+          </div>
         </div>
 
-        {/* Quick Nav Search (only when expanded) */}
-        {!collapsed && (
+        {/* Quick Nav Search (visible when expanded OR on mobile drawer) */}
+        {(!collapsed || mobileOpen) && (
           <div className="px-3 pt-3 pb-2 border-b border-[var(--sidebar-border)] shrink-0">
             <div className="relative">
               <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-[var(--muted-foreground)]" />

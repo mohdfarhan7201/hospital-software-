@@ -132,10 +132,10 @@ export function DataTable<T extends Record<string, any>>({
   return (
     <div className="bg-[var(--card)] border border-[var(--border)] rounded-xl overflow-hidden shadow-xs transition-colors">
       {/* Table Toolbar */}
-      <div className="p-4 border-b border-[var(--border)] flex flex-col md:flex-row md:items-center justify-between gap-3">
-        {/* Search */}
-        <div className="flex flex-1 items-center gap-2">
-          <div className="relative flex-1 max-w-sm">
+      <div className="p-3 sm:p-4 border-b border-[var(--border)] flex flex-col md:flex-row md:items-center justify-between gap-3">
+        {/* Search & Filters */}
+        <div className="flex flex-1 flex-wrap items-center gap-2">
+          <div className="relative flex-1 min-w-[180px] max-w-sm">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--muted-foreground)]" />
             <input
               type="text"
@@ -145,13 +145,13 @@ export function DataTable<T extends Record<string, any>>({
                 setSearchQuery(e.target.value);
                 setCurrentPage(1);
               }}
-              className="w-full pl-9 pr-3 py-1.5 text-sm rounded-lg border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:outline-hidden focus:ring-1 focus:ring-[var(--primary)] transition-all"
+              className="w-full pl-9 pr-3 py-1.5 text-xs sm:text-sm rounded-lg border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:outline-hidden focus:ring-1 focus:ring-[var(--primary)] transition-all"
             />
           </div>
 
           {/* Filter Dropdowns */}
           {filters.map((filter) => (
-            <div key={filter.key} className="flex items-center gap-1.5">
+            <div key={filter.key} className="flex items-center gap-1.5 shrink-0">
               <select
                 aria-label={filter.label}
                 value={activeFilters[filter.key] || "ALL"}
@@ -176,7 +176,7 @@ export function DataTable<T extends Record<string, any>>({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0 self-end md:self-auto">
           {actions}
           <button
             onClick={handleExport}
@@ -184,7 +184,8 @@ export function DataTable<T extends Record<string, any>>({
             title="Download CSV report"
           >
             <Download className="w-3.5 h-3.5 text-[var(--muted-foreground)]" />
-            Export CSV
+            <span className="hidden sm:inline">Export CSV</span>
+            <span className="sm:hidden">Export</span>
           </button>
         </div>
       </div>

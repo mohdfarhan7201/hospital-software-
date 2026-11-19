@@ -287,8 +287,8 @@ export default function AppointmentsListPage() {
 
       {/* Book New Appointment Modal */}
       {showAddModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-lg bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl p-6">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-xs p-3 sm:p-4">
+          <div className="w-full max-w-lg max-h-[92vh] overflow-y-auto bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl p-5 sm:p-6">
             <h3 className="text-base font-bold text-slate-900 dark:text-slate-100 mb-1">
               Book New Patient Appointment
             </h3>
@@ -334,7 +334,7 @@ export default function AppointmentsListPage() {
                     className="w-full p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs"
                   />
                 </div>
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   <div>
                     <label className="block text-[11px] font-medium mb-1 text-slate-600 dark:text-slate-400">
                       City
@@ -395,7 +395,7 @@ export default function AppointmentsListPage() {
                 </select>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block font-semibold mb-1 text-slate-700 dark:text-slate-300">
                     Appointment Date
@@ -430,7 +430,7 @@ export default function AppointmentsListPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block font-semibold mb-1 text-slate-700 dark:text-slate-300">
                     Visit Type

@@ -177,7 +177,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
             )}
           </div>
 
-          {/* Global Search Trigger */}
+          {/* Global Search Trigger (Desktop) */}
           <button
             onClick={() => setShowSearchModal(true)}
             className="hidden lg:flex items-center gap-2 px-3 py-1.5 text-xs rounded-lg border border-[var(--border)] bg-[var(--background)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] w-64 justify-between transition-colors"
@@ -193,11 +193,21 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
         </div>
 
         {/* Right Action Icons & Role Switcher */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          {/* Quick Register Patient Button */}
+        <div className="flex items-center gap-1.5 sm:gap-2.5">
+          {/* Mobile Search Trigger Icon */}
+          <button
+            onClick={() => setShowSearchModal(true)}
+            className="flex lg:hidden p-2 rounded-lg text-[var(--muted-foreground)] hover:bg-[var(--muted)] hover:text-[var(--foreground)] transition-colors border border-[var(--border)] bg-[var(--card)]"
+            title="Quick Search"
+            aria-label="Quick Search"
+          >
+            <Search className="w-4 h-4" />
+          </button>
+
+          {/* Quick Register Patient Button (Desktop & Tablet) */}
           <Link
             href="/patients/new"
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-[var(--primary)] hover:opacity-90 text-white shadow-xs transition-opacity"
+            className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-[var(--primary)] hover:opacity-90 text-white shadow-xs transition-opacity"
           >
             <Plus className="w-4 h-4" />
             <span>New Patient</span>
@@ -207,18 +217,18 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
           <button
             onClick={toggleTheme}
             aria-label="Toggle Theme"
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--muted)] text-[var(--foreground)] transition-colors shadow-xs font-medium text-xs cursor-pointer"
+            className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--muted)] text-[var(--foreground)] transition-colors shadow-xs font-medium text-xs cursor-pointer shrink-0"
             title={isDark ? "Switch to Pure Light Mode" : "Switch to Deep Dark Mode"}
           >
             {isDark ? (
               <>
                 <Sun className="w-4 h-4 text-amber-400" />
-                <span className="hidden sm:inline font-bold">Light Mode</span>
+                <span className="hidden sm:inline font-bold">Light</span>
               </>
             ) : (
               <>
                 <Moon className="w-4 h-4 text-slate-800" />
-                <span className="hidden sm:inline font-bold">Dark Mode</span>
+                <span className="hidden sm:inline font-bold">Dark</span>
               </>
             )}
           </button>

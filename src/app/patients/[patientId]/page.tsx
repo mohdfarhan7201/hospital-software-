@@ -193,7 +193,7 @@ export default function Patient360Page({ params }: { params: Promise<{ patientId
       </div>
 
       {/* Tabs Bar */}
-      <div className="border-b border-slate-200 dark:border-slate-800 flex overflow-x-auto gap-2 mb-6">
+      <div className="border-b border-slate-200 dark:border-slate-800 flex overflow-x-auto gap-2 mb-6 scrollbar-thin scrollbar-thumb-slate-200 dark:scrollbar-thumb-slate-800 pb-0.5">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -806,8 +806,8 @@ export default function Patient360Page({ params }: { params: Promise<{ patientId
 
       {/* Add Visit Modal */}
       {showAddVisitModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-md bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl p-6">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-xs p-3 sm:p-4">
+          <div className="w-full max-w-md max-h-[92vh] overflow-y-auto bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl p-5 sm:p-6">
             <h3 className="text-base font-bold text-slate-900 dark:text-slate-100 mb-1">
               Create New OPD Encounter
             </h3>
