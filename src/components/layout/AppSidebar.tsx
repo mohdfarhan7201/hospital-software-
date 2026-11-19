@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -77,6 +77,35 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
       return matchingItems.length > 0 ? { ...group, items: matchingItems } : null;
     })
     .filter(Boolean) as NavGroup[];
+
+  // 3. Compute all navigation item hrefs for strict active item exclusivity
+  const allHrefs = useMemo(() => {
+    return filteredNav.flatMap((g) => g.items.map((i) => i.href));
+  }, [filteredNav]);
+
+  // Strict helper: prevents both parent (/patients) and child (/patients/new) from selecting together
+  const isItemActive = (itemHref: string): boolean => {
+    // Exact match is always preferred
+    if (pathname === itemHref) return true;
+
+    // If an exact match exists for ANY item in navigation, do not match parent
+    if (allHrefs.includes(pathname)) return false;
+
+    // For dynamic / nested routes (e.g. /patients/pat-1), match longest prefix
+    if (itemHref === "/dashboard") return false;
+    const prefix = itemHref.endsWith("/") ? itemHref : `${itemHref}/`;
+    if (!pathname.startsWith(prefix)) return false;
+
+    // Ensure no more specific/longer matching route exists
+    const hasMoreSpecific = allHrefs.some(
+      (otherHref) =>
+        otherHref !== itemHref &&
+        pathname.startsWith(otherHref.endsWith("/") ? otherHref : `${otherHref}/`) &&
+        otherHref.length > itemHref.length
+    );
+
+    return !hasMoreSpecific;
+  };
 
   return (
     <>
@@ -207,11 +236,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
           {filteredNav.map((group) => {
             const GroupIcon = group.icon;
             const isOpen = openGroups[group.id] || !!navSearch.trim();
-            const hasActiveChild = group.items.some(
-              (item) =>
-                pathname === item.href ||
-                (item.href !== "/dashboard" && pathname.startsWith(item.href))
-            );
+            const hasActiveChild = group.items.some((item) => isItemActive(item.href));
 
             return (
               <div
@@ -283,9 +308,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
 
                     <div className="max-h-80 overflow-y-auto space-y-0.5 py-1">
                       {group.items.map((item) => {
-                        const isActive =
-                          pathname === item.href ||
-                          (item.href !== "/dashboard" && pathname.startsWith(item.href));
+                        const isActive = isItemActive(item.href);
 
                         return (
                           <Link
@@ -330,9 +353,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
                 {!collapsed && isOpen && (
                   <div className="mt-1 space-y-0.5 pl-3 border-l-2 border-[var(--border)] ml-3">
                     {group.items.map((item) => {
-                      const isActive =
-                        pathname === item.href ||
-                        (item.href !== "/dashboard" && pathname.startsWith(item.href));
+                      const isActive = isItemActive(item.href);
 
                       return (
                         <Link
