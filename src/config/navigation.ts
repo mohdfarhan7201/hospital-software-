@@ -132,7 +132,6 @@ export const navigationConfig: NavGroup[] = [
       {
         title: "Unconfirmed Appointments",
         href: "/appointments/unconfirmed",
-        badge: "1",
         roles: ["Super Admin", "Hospital Admin", "Receptionist"],
       },
       {

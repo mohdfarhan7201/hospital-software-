@@ -34,7 +34,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
 }) => {
   const pathname = usePathname();
   const { user } = useAuth();
-  const { currentBranch } = useHospital();
+  const { currentBranch, unconfirmedCount } = useHospital();
   const [navSearch, setNavSearch] = useState("");
   
   // Track hovered group for flyout menu when collapsed
@@ -105,6 +105,14 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
     );
 
     return !hasMoreSpecific;
+  };
+
+  // Dynamic badge resolver: hides count badge when zero unconfirmed items remain
+  const getItemBadge = (itemHref: string, staticBadge?: string) => {
+    if (itemHref === "/appointments/unconfirmed") {
+      return unconfirmedCount > 0 ? String(unconfirmedCount) : undefined;
+    }
+    return staticBadge;
   };
 
   return (
@@ -309,6 +317,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
                     <div className="max-h-80 overflow-y-auto space-y-0.5 py-1">
                       {group.items.map((item) => {
                         const isActive = isItemActive(item.href);
+                        const itemBadge = getItemBadge(item.href, item.badge);
 
                         return (
                           <Link
@@ -326,18 +335,18 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
                             )}
                           >
                             <span className="truncate">{item.title}</span>
-                            {item.badge && (
+                            {itemBadge && (
                               <span
                                 className={cn(
                                   "text-[10px] px-1.5 py-0.2 rounded-full font-bold",
                                   isActive
                                     ? "bg-white/20 text-white"
-                                    : item.badge === "Critical" || item.badge === "Alert"
+                                    : itemBadge === "Critical" || itemBadge === "Alert"
                                     ? "bg-rose-500/10 text-rose-500"
                                     : "bg-[var(--primary)]/10 text-[var(--primary)]"
                                 )}
                               >
-                                {item.badge}
+                                {itemBadge}
                               </span>
                             )}
                           </Link>
@@ -354,6 +363,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
                   <div className="mt-1 space-y-0.5 pl-3 border-l-2 border-[var(--border)] ml-3">
                     {group.items.map((item) => {
                       const isActive = isItemActive(item.href);
+                      const itemBadge = getItemBadge(item.href, item.badge);
 
                       return (
                         <Link
@@ -368,18 +378,18 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
                           )}
                         >
                           <span className="truncate">{item.title}</span>
-                          {item.badge && (
+                          {itemBadge && (
                             <span
                               className={cn(
                                 "text-[10px] px-1.5 py-0.2 rounded-full font-bold",
                                 isActive
                                   ? "bg-white/20 text-white"
-                                  : item.badge === "Critical" || item.badge === "Alert"
+                                  : itemBadge === "Critical" || itemBadge === "Alert"
                                   ? "bg-rose-500/10 text-rose-500 border border-rose-500/20"
                                   : "bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/20"
                               )}
                             >
-                              {item.badge}
+                              {itemBadge}
                             </span>
                           )}
                         </Link>

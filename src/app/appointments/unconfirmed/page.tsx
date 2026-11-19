@@ -1,25 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { DashboardShell } from "@/components/layout/DashboardShell";
 import { PageHeader } from "@/components/common/PageHeader";
-import { mockAppointments } from "@/data/mockData";
-import { Appointment } from "@/types";
+import { useHospital } from "@/contexts/HospitalContext";
 import { CheckCircle2, Phone, XCircle, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
 
 export default function UnconfirmedAppointmentsPage() {
-  const [unconfirmed, setUnconfirmed] = useState<Appointment[]>(
-    mockAppointments.filter((a) => a.status === "Unconfirmed" || a.status === "Confirmed").slice(0, 4)
-  );
+  const {
+    unconfirmedAppointments: unconfirmed,
+    confirmAppointment,
+    rejectAppointment,
+  } = useHospital();
 
   const handleConfirm = (id: string, name: string) => {
-    setUnconfirmed((prev) => prev.filter((a) => a.id !== id));
+    confirmAppointment(id);
     toast.success(`Appointment confirmed for ${name}. Token dispatched via SMS/WhatsApp.`);
   };
 
   const handleReject = (id: string) => {
-    setUnconfirmed((prev) => prev.filter((a) => a.id !== id));
+    rejectAppointment(id);
     toast.error("Appointment reservation declined.");
   };
 

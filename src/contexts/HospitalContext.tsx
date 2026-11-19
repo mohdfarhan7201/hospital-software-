@@ -1,8 +1,8 @@
 "use client";
 
 import React, { createContext, useContext, useState } from "react";
-import { Branch } from "@/types";
-import { mockBranches } from "@/data/mockData";
+import { Branch, Appointment } from "@/types";
+import { mockBranches, mockAppointments } from "@/data/mockData";
 
 export interface NotificationItem {
   id: string;
@@ -48,6 +48,8 @@ const initialNotifications: NotificationItem[] = [
   },
 ];
 
+const initialUnconfirmedList = mockAppointments.filter((a) => a.status === "Unconfirmed");
+
 interface HospitalContextType {
   currentBranch: Branch;
   branches: Branch[];
@@ -56,6 +58,10 @@ interface HospitalContextType {
   unreadCount: number;
   markAsRead: (id: string) => void;
   markAllAsRead: () => void;
+  unconfirmedAppointments: Appointment[];
+  unconfirmedCount: number;
+  confirmAppointment: (id: string) => void;
+  rejectAppointment: (id: string) => void;
 }
 
 const HospitalContext = createContext<HospitalContextType>({
@@ -66,11 +72,16 @@ const HospitalContext = createContext<HospitalContextType>({
   unreadCount: 3,
   markAsRead: () => {},
   markAllAsRead: () => {},
+  unconfirmedAppointments: initialUnconfirmedList,
+  unconfirmedCount: initialUnconfirmedList.length,
+  confirmAppointment: () => {},
+  rejectAppointment: () => {},
 });
 
 export const HospitalProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [currentBranch, setCurrentBranch] = useState<Branch>(mockBranches[0]);
   const [notifications, setNotifications] = useState<NotificationItem[]>(initialNotifications);
+  const [unconfirmedAppointments, setUnconfirmedAppointments] = useState<Appointment[]>(initialUnconfirmedList);
 
   const setBranch = (branchId: string) => {
     const found = mockBranches.find((b) => b.id === branchId);
@@ -87,7 +98,16 @@ export const HospitalProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
   };
 
+  const confirmAppointment = (id: string) => {
+    setUnconfirmedAppointments((prev) => prev.filter((a) => a.id !== id));
+  };
+
+  const rejectAppointment = (id: string) => {
+    setUnconfirmedAppointments((prev) => prev.filter((a) => a.id !== id));
+  };
+
   const unreadCount = notifications.filter((n) => !n.read).length;
+  const unconfirmedCount = unconfirmedAppointments.length;
 
   return (
     <HospitalContext.Provider
@@ -99,6 +119,10 @@ export const HospitalProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         unreadCount,
         markAsRead,
         markAllAsRead,
+        unconfirmedAppointments,
+        unconfirmedCount,
+        confirmAppointment,
+        rejectAppointment,
       }}
     >
       {children}
