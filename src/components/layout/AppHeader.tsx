@@ -52,7 +52,9 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    queueMicrotask(() => {
+      setMounted(true);
+    });
   }, []);
 
   const { user, setUserRole, logout } = useAuth();

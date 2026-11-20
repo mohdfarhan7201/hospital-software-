@@ -31,6 +31,43 @@ interface BillItemRow {
   taxPercent: number;
 }
 
+function buildNewInvoice(
+  patient: (typeof mockPatients)[0],
+  department: string,
+  billItems: BillItemRow[],
+  subtotal: number,
+  tax: number,
+  discountAmount: number,
+  totalAmount: number,
+  paymentMethod: BillingInvoice["paymentMethod"]
+): BillingInvoice {
+  return {
+    id: `inv-${Date.now()}`,
+    billNumber: `INV-2026-${Math.floor(10000 + Math.random() * 90000)}`,
+    uhid: patient.uhid,
+    patientName: patient.fullName,
+    patientMobile: patient.mobile,
+    billingDate: new Date().toISOString().split("T")[0],
+    department,
+    items: billItems.map((i) => ({
+      description: i.description,
+      category: i.category,
+      quantity: i.quantity,
+      unitPrice: i.unitPrice,
+      taxPercent: i.taxPercent,
+      total: i.quantity * i.unitPrice,
+    })),
+    subtotal,
+    tax,
+    discount: discountAmount,
+    totalAmount,
+    paidAmount: totalAmount,
+    outstandingAmount: 0,
+    paymentMethod,
+    status: "Paid",
+  };
+}
+
 export default function BillingDashboardPage() {
   const [invoices, setInvoices] = useState<BillingInvoice[]>(mockInvoices);
   const [showNewBillModal, setShowNewBillModal] = useState(false);
@@ -89,31 +126,16 @@ export default function BillingDashboardPage() {
     e.preventDefault();
     const patient = mockPatients.find((p) => p.id === selectedPatientId) || mockPatients[0];
 
-    const newInv: BillingInvoice = {
-      id: `inv-${Date.now()}`,
-      billNumber: `INV-2026-${Math.floor(10000 + Math.random() * 90000)}`,
-      uhid: patient.uhid,
-      patientName: patient.fullName,
-      patientMobile: patient.mobile,
-      billingDate: new Date().toISOString().split("T")[0],
+    const newInv = buildNewInvoice(
+      patient,
       department,
-      items: billItems.map((i) => ({
-        description: i.description,
-        category: i.category,
-        quantity: i.quantity,
-        unitPrice: i.unitPrice,
-        taxPercent: i.taxPercent,
-        total: i.quantity * i.unitPrice,
-      })),
+      billItems,
       subtotal,
       tax,
-      discount: discountAmount,
+      discountAmount,
       totalAmount,
-      paidAmount: totalAmount,
-      outstandingAmount: 0,
-      paymentMethod,
-      status: "Paid",
-    };
+      paymentMethod
+    );
 
     setInvoices([newInv, ...invoices]);
     setShowNewBillModal(false);

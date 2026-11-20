@@ -23,13 +23,15 @@ export default function PatientTransfersPage() {
 
   const handleTransfer = (e: React.FormEvent) => {
     e.preventDefault();
-    if (fromBed && toBed && fromBed.patient) {
-      toBed.patient = fromBed.patient;
-      toBed.status = "Occupied";
-      fromBed.patient = undefined;
-      fromBed.status = "Cleaning";
+    const sourceBed = mockBeds.find((b) => b.id === fromBedId);
+    const targetBed = mockBeds.find((b) => b.id === toBedId);
+    if (sourceBed && targetBed && sourceBed.patient) {
+      targetBed.patient = { ...sourceBed.patient };
+      targetBed.status = "Occupied";
+      sourceBed.patient = undefined;
+      sourceBed.status = "Cleaning";
     }
-    toast.success(`Patient successfully transferred to ${toBed?.bedNumber}! Previous bed moved to Cleaning.`);
+    toast.success(`Patient successfully transferred to ${toBed?.bedNumber || "target bed"}! Previous bed moved to Cleaning.`);
     router.push("/wards/roster");
   };
 
